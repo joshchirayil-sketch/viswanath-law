@@ -18,18 +18,30 @@ document.querySelectorAll('.nav a').forEach(link => {
 });
 
 // Scroll fade-in animation
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
+const fadeEls = document.querySelectorAll('.fade-in');
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
-// Contact form (basic handler - replace with real endpoint)
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Fallback: if anything hasn't become visible after 3s, force it
+  setTimeout(() => {
+    fadeEls.forEach(el => el.classList.add('visible'));
+  }, 3000);
+} else {
+  // No IntersectionObserver support — show everything
+  fadeEls.forEach(el => el.classList.add('visible'));
+}
+
+// Contact form (basic handler)
 const contactForm = document.querySelector('.contact-form');
 contactForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -38,15 +50,11 @@ contactForm?.addEventListener('submit', async (e) => {
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
-  // Simulate send — replace with actual API endpoint
   try {
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
     console.log('Form submission:', data);
-
-    // TODO: Replace with actual endpoint
-    // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json' } });
-
+    // TODO: wire to actual endpoint
     btn.textContent = 'Sent ✓';
     contactForm.reset();
     setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 3000);
@@ -62,6 +70,9 @@ const currentPath = window.location.pathname;
 document.querySelectorAll('.nav a').forEach(link => {
   const href = link.getAttribute('href');
   if (href === currentPath || (currentPath.includes('/professionals') && href.includes('/professionals'))) {
+    link.classList.add('active');
+  }
+  if (currentPath.includes('/paige') && href.includes('/paige')) {
     link.classList.add('active');
   }
 });
