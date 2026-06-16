@@ -1,0 +1,143 @@
+<!--
+  ╔═══════════════════════════════════════════════════════════════╗
+  ║  MODULAR ATTORNEY/STAFF PROFILE PAGE TEMPLATE                ║
+  ║                                                               ║
+  ║  To add a new person:                                         ║
+  ║  1. Copy this file → rename to [slug].html (e.g. john-doe.html)
+  ║  2. Replace all [PLACEHOLDERS] with actual content            ║
+  ║  3. Add a team-card in professionals.html linking here        ║
+  ║  4. Add their photo to ../images/[slug]-headshot.jpg          ║
+  ╚═══════════════════════════════════════════════════════════════╝
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[FULL_NAME] | Viswanath Law Firm</title>
+  <meta name="description" content="[FULL_NAME] — [ROLE] at Viswanath Law Firm, serving the Metro Detroit area. [BRIEF_DESCRIPTION].">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../images/vj-icon.png" type="image/png">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="../images/vj-icon.png" alt="Viswanath Law">
+        <span class="logo-text">Viswanath Law</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="/">Home</a>
+        <a href="/#practice-areas">Practice Areas</a>
+        <a href="/#vision">Our Vision</a>
+        <a href="/professionals.html" class="active">Professionals</a>
+        <a href="/#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PROFILE HERO -->
+  <section class="profile-hero">
+    <div class="container">
+      <div class="profile-hero-inner">
+        <div class="profile-photo">
+          <!-- Replace with actual photo: <img src="../images/[SLUG]-headshot.jpg" alt="[FULL_NAME]"> -->
+          <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.1);">
+            <span style="font-size:6rem;opacity:0.5;">👤</span>
+          </div>
+        </div>
+        <div class="profile-info">
+          <h1>[FULL_NAME]</h1>
+          <p class="title">[ROLE] — Viswanath Law Firm</p>
+          <div class="bio">
+            <p>[BIO_PARAGRAPH_1]</p>
+            <p>[BIO_PARAGRAPH_2 — optional, delete if not needed]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILE BODY -->
+  <div class="profile-body">
+    <div class="container">
+
+      <!-- EDUCATION — delete section if N/A -->
+      <div class="profile-section fade-in">
+        <h2>Education</h2>
+        <ul>
+          <li><strong>[DEGREE]</strong> — [SCHOOL], [YEAR]</li>
+        </ul>
+      </div>
+
+      <!-- MEMBERSHIPS — delete section if N/A -->
+      <div class="profile-section fade-in">
+        <h2>Memberships &amp; Affiliations</h2>
+        <ul>
+          <li>[MEMBERSHIP_1]</li>
+          <li>[MEMBERSHIP_2]</li>
+        </ul>
+      </div>
+
+      <!-- PRACTICE AREAS — for attorneys, delete for staff -->
+      <div class="profile-section fade-in">
+        <h2>Practice Areas</h2>
+        <ul>
+          <li>[AREA_1]</li>
+          <li>[AREA_2]</li>
+        </ul>
+      </div>
+
+      <!-- VIDEOS — optional, delete if not needed -->
+      <div class="profile-section fade-in">
+        <h2>Videos</h2>
+        <div class="video-grid">
+          <!-- Replace with actual embed: <iframe src="https://youtube.com/embed/..." ...></iframe> -->
+          <div class="video-placeholder">Video Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- GALLERY — optional, delete if not needed -->
+      <div class="profile-section fade-in">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <!-- <img src="../images/[SLUG]-gallery-1.jpg" alt="[DESCRIPTION]"> -->
+          <div class="video-placeholder" style="aspect-ratio:1;">Photo Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-40 fade-in">
+        <a href="/#contact" class="btn btn-primary" style="background:var(--navy);color:var(--white);font-size:1.1rem;padding:16px 40px;">Contact Us →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">
+            <img src="../images/vj-icon.png" alt="VJ">
+            <span>Viswanath Law</span>
+          </div>
+          <p class="footer-note">Formerly known as the SKV Firm, PLC</p>
+        </div>
+        <p>&copy; 2025 Viswanath Law. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
